@@ -28,7 +28,7 @@ app.listen(PORT,()=>{
     console.log(`Server running at port ${PORT}`)
 })
 
-mongoose.connect(process.env.Mongo_DB_URI || "mongodb+srv://Gsathiya:capstoneproject@cluster0.ktemn.mongodb.net/Movies-App?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://Gsathiya:capstoneproject@cluster0.ktemn.mongodb.net/Movies-App?retryWrites=true&w=majority")
 .then(()=>{
     console.log("MongoDB connected successfully")
 }).catch((err) => {
