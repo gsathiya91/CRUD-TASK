@@ -9,13 +9,10 @@ const authRoutes = require('./Routes/AuthRoutes');
 const cors = require('cors');
 
 //port
-const PORT = process.env.Port || 8000
+const PORT = process.env.PORT || 5000
 
 //cors
-app.use(cors({
-    origin: ["http://localhost:3000"],
-    credentials: true,
-}));
+app.use(cors());
 //cookie-parser
 app.use(cookieParser());
 
@@ -28,9 +25,10 @@ app.listen(PORT,()=>{
     console.log(`Server running at port ${PORT}`)
 })
 
-mongoose.connect(process.env.Mongo_DB_URI)
+mongoose.connect(process.env.Mongo_DB_URI || "mongodb+srv://Gsathiya:capstoneproject@cluster0.ktemn.mongodb.net/Movies-App?retryWrites=true&w=majority")
 .then(()=>{
     console.log("MongoDB connected successfully")
 }).catch((err) => {
     console.log(err.message)
 })
+
